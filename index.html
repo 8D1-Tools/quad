@@ -5,20 +5,32 @@
     h1 {
       text-align: center;
     }
-    .iframe-container {
-    width: 100%;
-    text-align: center;
+    h1 a {
+      text-decoration: none;  /* remove underline */
+      color: inherit;         /* keep default text color */
     }
-      .iframe-container iframe {
+    h1 a:hover {
+      color: purple;          /* optional hover effect */
+    }
+    .iframe-container {
+      width: 100%;
+      text-align: center;
+    }
+    .iframe-container iframe {
       margin: 0 auto;
       display: block;
     }
-
-    
   </style>
 </head>
 <body>
-  <h1>THE PERSON BELOW IS A NERD</h1>
-  <iframe src="https://player.twitch.tv/?channel=capnquadrikorn&parent=gofuckyourselfsideways.ca" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+  <h1>
+    <a href="https://twitch.tv/capnquadrikorn" target="_blank">Check out my stream!</a>
+  </h1>
+  
+  <div class="iframe-container">
+    <iframe src="https://player.twitch.tv/?channel=capnquadrikorn&parent=gofuckyourselfsideways.ca" 
+            frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620">
+    </iframe>
+  </div>
 </body>
 </html>
