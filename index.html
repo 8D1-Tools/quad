@@ -1,1 +1,58 @@
-<h1>JAMAL SUX</h1>
+
+<style>
+	body {
+		margin: 0;
+		overflow: hidden;
+		background: #000;
+	}
+	#dvd {
+		position: absolute;
+		color: #fff;
+		font-size: 3em;
+		font-family: Arial, sans-serif;
+		user-select: none;
+		pointer-events: none;
+		text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+	}
+</style>
+<h1 id="dvd">JAMAL SUX</h1>
+<script>
+	const dvd = document.getElementById('dvd');
+	let x = 100, y = 100;
+	let dx = 2, dy = 2;
+	const colors = ['#0ff', '#f0f', '#ff0', '#0f0', '#f00', '#00f', '#fff'];
+
+	function randomColor() {
+		return colors[Math.floor(Math.random() * colors.length)];
+	}
+
+	function move() {
+		const w = window.innerWidth;
+		const h = window.innerHeight;
+		const rect = dvd.getBoundingClientRect();
+
+		x += dx;
+		y += dy;
+
+		if (x <= 0 || x + rect.width >= w) {
+			dx *= -1;
+			dvd.style.color = randomColor();
+			dvd.style.textShadow = `0 0 10px ${dvd.style.color}, 0 0 20px ${dvd.style.color}`;
+		}
+		if (y <= 0 || y + rect.height >= h) {
+			dy *= -1;
+			dvd.style.color = randomColor();
+			dvd.style.textShadow = `0 0 10px ${dvd.style.color}, 0 0 20px ${dvd.style.color}`;
+		}
+
+		dvd.style.left = x + 'px';
+		dvd.style.top = y + 'px';
+		requestAnimationFrame(move);
+	}
+
+	window.onload = () => {
+		dvd.style.left = x + 'px';
+		dvd.style.top = y + 'px';
+		move();
+	};
+</script>
